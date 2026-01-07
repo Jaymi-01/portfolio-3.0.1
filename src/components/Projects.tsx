@@ -14,18 +14,18 @@ const myProjects = [
   },
   {
     id: 2,
-    title: "AI Prompt Engineer",
-    description: "A platform for sharing and testing GPT-4 prompts. Built with TypeScript and OpenAI API.",
-    tags: ["TypeScript", "OpenAI", "React", "Node.js"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format",
-    github: "https://github.com/yourusername/ai-prompt",
-    demo: "https://ai-prompt.com",
+    title: "Eventup",
+    description: "A platform designed to help hybrid-conference teams create, collaborate and celebrate together",
+    tags: ["React", "Javascript", "TailwindCSS"],
+    image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1767795150/zt9pdemhfq1g7eac0ei4.png",
+    github: "https://github.com/Jaymi-01/eventup",
+    demo: "https://eventup-topaz.vercel.app/",
   },
   {
     id: 3,
     title: "Read Count",
     description: "An online book tracker application with social features.",
-    tags: ["React Native", "Firebase"],
+    tags: ["React Native", "Typescript", "Firebase"],
     image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1767778893/n7e3rqkgwdi6serqtrnr.png",
     github: "https://github.com/Jaymi-01/readcount-new",
     demo: "https://appetize.io/app/b_xicmsnlrfqiytygofqp2ep4ru4",
@@ -34,20 +34,20 @@ const myProjects = [
     id: 4,
     title: "Afuni's Ticket App",
     description: "A ticketing website built using CRUD operation, with data displayed in real time.",
-    tags: ["React", "TailwindCSS"],
+    tags: ["React", "Javascript", "TailwindCSS"],
     image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1767780782/eaaowla898vb9mdppeul.png",
     github: "https://github.com/Jaymi-01/ticket-app-react",
     demo: "https://ticket-app-react.vercel.app/",
   },
-  {
-    id: 5,
-    title: "Cyber Portfolio 3.0",
-    description: "The site you are looking at. Featuring GSAP rain effects and Framer Motion animations.",
-    tags: ["React", "GSAP", "Framer Motion"],
-    image: "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=800&auto=format",
-    github: "https://github.com/yourusername/portfolio",
-    demo: "https://jaymi-tsx.dev",
-  }
+  // {
+  //   id: 5,
+  //   title: "Blogr Landing Page",
+  //   description: "A landing page for a Virtual Reality build platform.",
+  //   tags: ["React", "Javascript", "tailwindCSS"],
+  //   image: "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=800&auto=format",
+  //   github: "https://github.com/yourusername/portfolio",
+  //   demo: "https://jaymi-tsx.dev",
+  // }
 ];
 
 // 2. INDIVIDUAL PROJECT CARD COMPONENT
