@@ -5,9 +5,77 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jaymi - Frontend Developer</title>
+    <style>
+      .initial-loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: #1A1A18;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+      }
+      .loader-container {
+        position: relative;
+        width: 64px;
+        height: 64px;
+      }
+      .loader-ring {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 4px solid transparent;
+        border-top-color: #d99a6c;
+        border-radius: 50%;
+        animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        box-shadow: 0 0 10px rgba(217, 154, 108, 0.2);
+      }
+      .loader-ring::before {
+        content: '';
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        right: 6px;
+        bottom: 6px;
+        border: 4px solid transparent;
+        border-top-color: rgba(217, 154, 108, 0.6);
+        border-radius: 50%;
+        animation: spin 2s linear infinite reverse;
+      }
+      .loader-core {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        background-color: #d99a6c;
+        border-radius: 50%;
+        box-shadow: 0 0 15px #d99a6c;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes pulse {
+        0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
+        50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="initial-loader">
+        <div class="loader-container">
+          <div class="loader-ring"></div>
+          <div class="loader-core"></div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
