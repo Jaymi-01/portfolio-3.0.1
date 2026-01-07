@@ -5,12 +5,12 @@ import { motion } from 'framer-motion';
 const myProjects = [
   {
     id: 1,
-    title: "Fullstack E-Commerce",
-    description: "Next.js 14, Stripe, and Prisma. Features a sleek dark-mode dashboard and real-time inventory.",
-    tags: ["Next.js", "Stripe", "Prisma", "Tailwind"],
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format",
-    github: "https://github.com/yourusername/shop",
-    demo: "https://shop-demo.com",
+    title: "Audiophile E-Commerce",
+    description: "A fullstack E-commerce website with a sleek dark-mode dashboard and real-time inventory.",
+    tags: ["React", "Typescript", "Convex", "TailwindCSS"],
+    image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1767781392/ege9qvkq0xzfckdv9sg8.png",
+    github: "https://github.com/Jaymi-01/audiophile",
+    demo: "https://jaymi-audiophile.vercel.app/",
   },
   {
     id: 2,
@@ -23,21 +23,21 @@ const myProjects = [
   },
   {
     id: 3,
-    title: "Mobile Book Tracker",
-    description: "React Native app with Firebase integration. Your flagship project with social features.",
-    tags: ["React Native", "Firebase", "Redux"],
-    image: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=800&auto=format",
-    github: "https://github.com/yourusername/book-tracker",
-    demo: "https://expo.dev/@yourusername/books",
+    title: "Read Count",
+    description: "An online book tracker application with social features.",
+    tags: ["React Native", "Firebase"],
+    image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1767778893/n7e3rqkgwdi6serqtrnr.png",
+    github: "https://github.com/Jaymi-01/readcount-new",
+    demo: "https://appetize.io/app/b_xicmsnlrfqiytygofqp2ep4ru4",
   },
   {
     id: 4,
-    title: "SaaS Analytics Dashboard",
-    description: "High-performance data visualization using Recharts and Tailwind CSS for cloud metrics.",
-    tags: ["Recharts", "React", "Cloudflare"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format",
-    github: "https://github.com/yourusername/metrics",
-    demo: "https://metrics-dash.com",
+    title: "Afuni's Ticket App",
+    description: "A ticketing website built using CRUD operation, with data displayed in real time.",
+    tags: ["React", "TailwindCSS"],
+    image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1767780782/eaaowla898vb9mdppeul.png",
+    github: "https://github.com/Jaymi-01/ticket-app-react",
+    demo: "https://ticket-app-react.vercel.app/",
   },
   {
     id: 5,
@@ -143,7 +143,7 @@ const Projects = () => {
           className="mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-mono text-white">
-            Projects<span className="text-primary">.</span>
+            Projects
           </h2>
         </motion.div>
 
