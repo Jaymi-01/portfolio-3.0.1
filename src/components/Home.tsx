@@ -6,7 +6,7 @@ const Home = () => {
       <div className="container mx-auto px-4 md:px-0">
         <div className="flex flex-col items-start max-w-4xl">
           <motion.h1
-            className="text-6xl md:text-8xl font-bold font-mono uppercase mb-4"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-mono uppercase mb-4"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -27,7 +27,7 @@ const Home = () => {
             </motion.span>
           </motion.h1>
           <motion.p
-            className='font-script text-lg/7 md:text-xl/8 font-semibold mb-4 tracking-normal md:tracking-wide'
+            className='font-script text-base sm:text-lg md:text-xl font-semibold mb-6 tracking-normal md:tracking-wide max-w-2xl'
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}

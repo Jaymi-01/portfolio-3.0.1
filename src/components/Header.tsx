@@ -43,9 +43,15 @@ const Header = ({ activeLink, setActiveLink }: HeaderProps) => {
     const element = document.getElementById(link);
     if (element) {
       // Offset added to prevent header from covering section title
-      const yOffset = -80; 
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      // We calculate the position relative to the document
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -59,7 +65,7 @@ const Header = ({ activeLink, setActiveLink }: HeaderProps) => {
 
   return (
     <nav className="bg-[#1A1A18] p-4 sticky top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex justify-between items-center relative">
         <div className="text-white text-2xl font-bold">
           <a href="/" className="font-mono text-primary">Jaymi.tsx</a>
         </div>
@@ -90,9 +96,13 @@ const Header = ({ activeLink, setActiveLink }: HeaderProps) => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <div className="border-t border-gray-800 mt-4 pt-4 pb-4">
+      {/* Mobile Navigation Overlay */}
+      <div 
+        className={`md:hidden absolute left-0 right-0 bg-[#1A1A18] shadow-lg border-t border-gray-800 transition-all duration-300 ease-in-out ${
+          isOpen ? 'top-full opacity-100 visible' : 'top-[120%] opacity-0 invisible'
+        }`}
+      >
+        <div className="container mx-auto px-4 py-4">
           <ul className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <li key={link.id}>

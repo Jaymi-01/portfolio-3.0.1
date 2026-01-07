@@ -93,7 +93,7 @@ const About = () => {
               About Me
             </h1>
             <motion.p
-              className="text-2xl text-gray-400 mb-4 font-script"
+              className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-4 font-script"
               initial={{ opacity: 0, y: 20 }}
               animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
@@ -101,7 +101,7 @@ const About = () => {
               I'm a passionate and creative software developer with a love for building beautiful and functional web applications.
             </motion.p>
             <motion.p
-              className="text-2xl text-gray-400 mb-4 font-script"
+              className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-4 font-script"
               initial={{ opacity: 0, y: 20 }}
               animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
@@ -109,7 +109,7 @@ const About = () => {
               I have experience in a variety of technologies, including React, TypeScript, and Node.js. I'm always eager to learn new things and take on new challenges.
             </motion.p>
             <motion.p
-              className="text-2xl text-gray-400 font-script"
+              className="text-lg md:text-xl lg:text-2xl text-gray-400 font-script"
               initial={{ opacity: 0, y: 20 }}
               animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
