@@ -17,7 +17,7 @@ const Home = () => {
               initial={{ rotateY: 0 }}
               animate={{ rotateY: 360 }}
               transition={{
-                duration: 1,
+                duration: 2,
                 delay: 0.8,
                 ease: "easeInOut"
               }}
