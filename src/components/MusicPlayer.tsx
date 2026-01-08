@@ -4,16 +4,28 @@ import { motion } from 'framer-motion';
 
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [bottomOffset, setBottomOffset] = useState(24); // Default bottom-6 (24px)
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const [bottomOffset, setBottomOffset] = useState(24);
+  const [shakeTrigger, setShakeTrigger] = useState(0); // Used to re-trigger animation
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  // Trigger shake every 2 seconds if not interacted
+  useEffect(() => {
+    if (hasInteracted) return;
+
+    const interval = setInterval(() => {
+      setShakeTrigger(prev => prev + 1);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [hasInteracted]);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollHeight = document.documentElement.scrollHeight;
       const scrollPosition = window.innerHeight + window.scrollY;
-      const footerHeight = 120; // Estimated height of your footer
+      const footerHeight = 120;
 
-      // If we are close to the bottom, start pushing the button up
       if (scrollHeight - scrollPosition < footerHeight) {
         const newOffset = footerHeight - (scrollHeight - scrollPosition) + 24;
         setBottomOffset(newOffset);
@@ -28,7 +40,7 @@ const MusicPlayer = () => {
 
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.volume = 0.2; // Set volume to 20%
+      audioRef.current.volume = 0.2;
     }
 
     const handleVisibilityChange = () => {
@@ -36,7 +48,7 @@ const MusicPlayer = () => {
         if (audioRef.current) {
           audioRef.current.pause();
         }
-        setIsPlaying(false); // Reset state so it doesn't resume automatically
+        setIsPlaying(false);
       }
     };
 
@@ -47,6 +59,8 @@ const MusicPlayer = () => {
   }, [isPlaying]);
 
   const togglePlay = () => {
+    if (!hasInteracted) setHasInteracted(true);
+    
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
@@ -55,12 +69,9 @@ const MusicPlayer = () => {
         
         if (playPromise !== undefined) {
           playPromise
-            .then(() => {
-              // Automatic playback started!
-            })
+            .then(() => {})
             .catch((error) => {
               console.error("Audio playback failed:", error);
-              // Auto-pause if playback fails (e.g. browser policy)
               setIsPlaying(false);
             });
         }
@@ -76,27 +87,35 @@ const MusicPlayer = () => {
     >
       <audio ref={audioRef} src="/jazz.mp3" loop />
       
-      <motion.button
-        onClick={togglePlay}
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className={`relative flex items-center justify-center w-12 h-12 rounded-full border border-primary transition-all duration-300 ${
-          isPlaying 
-            ? 'bg-primary text-black shadow-[0_0_15px_rgba(217,154,108,0.5)]' 
-            : 'bg-black/40 text-primary backdrop-blur-sm'
-        }`}
-        title={isPlaying ? "Pause Music" : "Play Jazz Music"}
+      {/* Wrapper for the shake animation to separate it from button interactions */}
+      <motion.div
+        animate={!hasInteracted ? {
+          y: [0, -10, 10, -10, 10, 0],
+        } : {}}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        key={shakeTrigger} // Key change forces re-render/animation
       >
-        {isPlaying ? <Pause size={20} /> : <Music size={20} />}
-        
-        {/* Pulsing effect when playing */}
-        {isPlaying && (
-          <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-30 animate-ping"></span>
-        )}
-      </motion.button>
+        <motion.button
+          onClick={togglePlay}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className={`relative flex items-center justify-center w-12 h-12 rounded-full border border-primary transition-all duration-300 ${
+            isPlaying 
+              ? 'bg-primary text-black shadow-[0_0_15px_rgba(217,154,108,0.5)]' 
+              : 'bg-black/40 text-primary backdrop-blur-sm'
+          }`}
+          title={isPlaying ? "Pause Music" : "Play Jazz Music"}
+        >
+          {isPlaying ? <Pause size={20} /> : <Music size={20} />}
+          
+          {isPlaying && (
+            <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-30 animate-ping"></span>
+          )}
+        </motion.button>
+      </motion.div>
     </div>
   );
 };
