@@ -189,10 +189,10 @@ const Contact = () => {
 
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="border border-gray-800 p-8 rounded-2xl text-center bg-[#1E1E1C]/50">
               <h4 className="text-xs font-mono text-primary uppercase tracking-widest mb-8">Connect with me</h4>
-              <div className="flex justify-center gap-4 md:gap-6 flex-wrap">
+              <div className="grid grid-cols-2 sm:flex sm:justify-center gap-4 md:gap-6 max-w-[280px] sm:max-w-none mx-auto">
                 {[ {Icon: FaLinkedin, link: "https://linkedin.com/in/jaymi1001", target: "_blank", rel: "noopener noreferrer"}, {Icon: FaGithub, link: "https://github.com/Jaymi-01"}, {Icon: FaEnvelope, link: "mailto:millerjoel7597@gmail.com"}, {Icon: FaTwitter, link: "https://x.com/Jaymi_tsx", target: "_blank", rel: "noopener noreferrer"} ].map((social, i) => (
-                  <a key={i} href={social.link} target={social.target} rel={social.rel} className="p-4 border border-gray-700 rounded-xl text-gray-400 hover:text-primary hover:border-primary transition-all transform hover:-translate-y-1">
-                    <social.Icon size={24} />
+                  <a key={i} href={social.link} target={social.target} rel={social.rel} className="p-3 border border-gray-700 rounded-xl text-gray-400 hover:text-primary hover:border-primary transition-all transform hover:-translate-y-1 flex items-center justify-center">
+                    <social.Icon size={20} />
                   </a>
                 ))}
               </div>
