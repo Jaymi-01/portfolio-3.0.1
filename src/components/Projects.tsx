@@ -1,13 +1,14 @@
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaDesktop, FaMobileAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
-// 1. UPDATED DATA ARRAY WITH TAGS
+// 1. UPDATED DATA ARRAY WITH TAGS AND TYPE
 const myProjects = [
   {
     id: 1,
     title: "Audiophile E-Commerce",
     description: "A fullstack E-commerce website with a sleek dark-mode dashboard and real-time inventory.",
     tags: ["React", "Typescript", "Convex", "TailwindCSS"],
+    type: "desktop",
     image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1767781392/ege9qvkq0xzfckdv9sg8.png",
     github: "https://github.com/Jaymi-01/audiophile",
     demo: "https://jaymi-audiophile.vercel.app/",
@@ -17,6 +18,7 @@ const myProjects = [
     title: "Eventup",
     description: "A platform designed to help hybrid-conference teams create, collaborate and celebrate together",
     tags: ["React", "Javascript", "TailwindCSS"],
+    type: "desktop",
     image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1767795150/zt9pdemhfq1g7eac0ei4.png",
     github: "https://github.com/Jaymi-01/eventup",
     demo: "https://eventup-topaz.vercel.app/",
@@ -26,6 +28,7 @@ const myProjects = [
     title: "Read Count",
     description: "An online book tracker application with social features.",
     tags: ["React Native", "Typescript", "Firebase"],
+    type: "mobile",
     image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1767778893/n7e3rqkgwdi6serqtrnr.png",
     github: "https://github.com/Jaymi-01/readcount-new",
     demo: "https://appetize.io/app/b_xicmsnlrfqiytygofqp2ep4ru4",
@@ -35,6 +38,7 @@ const myProjects = [
     title: "Afuni's Ticket App",
     description: "A ticketing website built using CRUD operation, with data displayed in real time.",
     tags: ["React", "Javascript", "TailwindCSS"],
+    type: "desktop",
     image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1767780782/eaaowla898vb9mdppeul.png",
     github: "https://github.com/Jaymi-01/ticket-app-react",
     demo: "https://ticket-app-react.vercel.app/",
@@ -68,6 +72,11 @@ const ProjectCard = ({ project, index }: { project: typeof myProjects[0], index:
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
+        
+        {/* Project Type Icon (Top-Left) */}
+        <div className="absolute top-3 left-3 z-10 p-2 rounded-full bg-black/60 border border-primary text-primary backdrop-blur-sm" title={project.type === 'mobile' ? 'Mobile App' : 'Desktop Website'}>
+          {project.type === 'mobile' ? <FaMobileAlt size={16} /> : <FaDesktop size={16} />}
+        </div>
 
         {/* Desktop Hover Overlay */}
         <div className="hidden md:flex absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center z-20">
