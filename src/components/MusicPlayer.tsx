@@ -81,9 +81,15 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div 
-      className="fixed right-6 z-50 transition-all duration-100 ease-out"
+    <motion.div 
+      className="fixed right-6 z-50"
       style={{ bottom: `${bottomOffset}px` }}
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ 
+        y: { type: "spring", stiffness: 200, damping: 8 },
+        opacity: { duration: 0.6 }
+      }}
     >
       <audio ref={audioRef} src="/jazz.mp3" loop />
       
@@ -97,9 +103,6 @@ const MusicPlayer = () => {
       >
         <motion.button
           onClick={togglePlay}
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className={`relative flex items-center justify-center w-12 h-12 rounded-full border border-primary transition-all duration-300 ${
@@ -116,7 +119,7 @@ const MusicPlayer = () => {
           )}
         </motion.button>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
