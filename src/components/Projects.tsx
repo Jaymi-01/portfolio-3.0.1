@@ -47,7 +47,7 @@ const myProjects = [
     id: 5,
     title: "AniRest E-Commerce",
     description: "A fullstack E-Commereced designed for renting anime (both physical copies and digital access).",
-    tags: ["Nextjs", "Typescript", "Shadcn, Firebase, Jikan API"],
+    tags: ["Nextjs", "Typescript", "Shadcn", "Firebase", "Jikan API"],
     image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1769441623/k9lqdgrb4jwgskd6h5uv.png",
     github: "https://github.com/Jaymi-01/anirent",
     demo: "https://anirent.vercel.app/",
