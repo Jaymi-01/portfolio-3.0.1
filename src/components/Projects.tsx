@@ -43,15 +43,15 @@ const myProjects = [
     github: "https://github.com/Jaymi-01/ticket-app-react",
     demo: "https://ticket-app-react.vercel.app/",
   },
-  // {
-  //   id: 5,
-  //   title: "Blogr Landing Page",
-  //   description: "A landing page for a Virtual Reality build platform.",
-  //   tags: ["React", "Javascript", "tailwindCSS"],
-  //   image: "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=800&auto=format",
-  //   github: "https://github.com/yourusername/portfolio",
-  //   demo: "https://jaymi-tsx.dev",
-  // }
+  {
+    id: 5,
+    title: "AniRest E-Commerce",
+    description: "A fullstack E-Commereced designed for renting anime (both physical copies and digital access).",
+    tags: ["React", "Typescript", "Shadcn, Firebase, Jikan API"],
+    image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1769441623/k9lqdgrb4jwgskd6h5uv.png",
+    github: "https://github.com/Jaymi-01/anirent",
+    demo: "https://anirent.vercel.app/",
+  }
 ];
 
 // 2. INDIVIDUAL PROJECT CARD COMPONENT
