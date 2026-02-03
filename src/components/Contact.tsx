@@ -224,7 +224,7 @@ const Contact = () => {
                   <div className="p-3 border border-gray-700 rounded-full text-primary group-hover:border-primary transition-colors">
                     <FaPhone size={18} />
                   </div>
-                  <span className="text-gray-300">+234 809 717 7851</span>
+                  <span className="text-gray-300">+234 816 745 2267</span>
                 </div>
               </div>
             </motion.div>
@@ -235,7 +235,7 @@ const Contact = () => {
                 {socials.map((social, i) => (
                   <a 
                     key={i} 
-                    ref={(el) => (socialRefs.current[i] = el)}
+                    ref={(el) => { socialRefs.current[i] = el; }}
                     href={social.link} 
                     target={social.target} 
                     rel={social.rel} 
