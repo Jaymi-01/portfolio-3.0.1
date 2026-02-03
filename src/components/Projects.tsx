@@ -45,7 +45,7 @@ const myProjects = [
   },
   {
     id: 5,
-    title: "AniRest E-Commerce",
+    title: "AniRent E-Commerce",
     description: "A fullstack E-commerce designed for renting anime (both physical copies and digital access).",
     tags: ["Nextjs", "Typescript", "Shadcn", "Firebase", "Jikan API"],
     image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1769441623/k9lqdgrb4jwgskd6h5uv.png",

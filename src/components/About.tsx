@@ -106,7 +106,7 @@ const About = () => {
               animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
             >
-              I have experience in a variety of technologies, including React, TypeScript, and Node.js. I'm always eager to learn new things and take on new challenges.
+              I have experience in a variety of technologies, including React, and Nextjs. I'm always eager to learn new things and take on new challenges.
             </motion.p>
             <motion.p
               className="text-lg md:text-xl lg:text-2xl text-gray-400 font-script"
