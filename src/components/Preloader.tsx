@@ -20,13 +20,13 @@ const Preloader = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let currentIndex = 0;
+    const indexRef = { current: 0 };
     
     // Disable body scroll when loading
     document.body.style.overflow = 'hidden';
 
     const interval = setInterval(() => {
-      if (currentIndex >= codeLines.length) {
+      if (indexRef.current >= codeLines.length) {
         clearInterval(interval);
         setTimeout(() => {
           setIsLoading(false);
@@ -35,8 +35,13 @@ const Preloader = () => {
         return;
       }
 
-      setLines(prev => [...prev, codeLines[currentIndex]]);
-      currentIndex++;
+      setLines(prev => {
+        // Prevent duplicate lines if strict mode fires rapidly
+        if (prev.length >= codeLines.length) return prev;
+        return [...prev, codeLines[indexRef.current]];
+      });
+      
+      indexRef.current++;
 
       // Auto-scroll to bottom
       if (scrollRef.current) {
@@ -45,7 +50,11 @@ const Preloader = () => {
 
     }, 200); // Speed of new lines appearing
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      // Ensure scroll is reset if component unmounts early
+      document.body.style.overflow = 'unset';
+    };
   }, []);
 
   return (
