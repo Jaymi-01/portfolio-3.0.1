@@ -1,0 +1,27 @@
+::selection {
+  background-color: #d99a6c; /* Primary Color */
+  color: #000000;
+}
+
+::-moz-selection {
+  background-color: #d99a6c;
+  color: #000000;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A1A18;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d99a6c;
+}
