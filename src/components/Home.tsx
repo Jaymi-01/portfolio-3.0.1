@@ -37,7 +37,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-[70vh] md:min-h-screen flex items-center pt-20 md:pt-0">
+    <section id="home" className="min-h-screen flex items-center pb-20 md:pb-0">
       <div className="container mx-auto px-4 md:px-0">
         <div className="flex flex-col items-start max-w-4xl">
           <motion.h1
