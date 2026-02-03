@@ -15,3 +15,78 @@ body{
   --font-mono: merienda;
   --color-primary: #d99a6c;
 }
+
+/* Print Styles - Transforms site into a clean Resume */
+@media print {
+  @page {
+    margin: 2cm;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* Hide non-essential UI elements */
+  nav, 
+  footer, 
+  .fixed, 
+  #music-player, 
+  #preloader,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Force sections to start on new pages if needed */
+  section {
+    padding: 0 !important;
+    margin-bottom: 2rem !important;
+    min-height: auto !important;
+    color: black !important;
+  }
+
+  h1, h2, h3 {
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  /* Show URLs next to links */
+  a:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8rem;
+    color: #333;
+  }
+
+  /* Remove background colors and shadows */
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-filter: none !important;
+    filter: none !important;
+  }
+
+  /* Specific formatting for Projects */
+  .grid {
+    display: block !important;
+  }
+
+  .grid > div {
+    margin-bottom: 2rem;
+    border: none !important;
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    display: none; /* Usually images are removed for clean resumes, but you can comment this out if you want them */
+  }
+
+  /* Style contact info for print */
+  #contact div {
+    border: none !important;
+  }
+}
