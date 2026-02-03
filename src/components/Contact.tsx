@@ -149,8 +149,50 @@
 
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { useRef, useEffect } from 'react';
+import gsap from 'gsap';
 
 const Contact = () => {
+  const socialRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  useEffect(() => {
+    socialRefs.current.forEach((el) => {
+      if (!el) return;
+
+      const xTo = gsap.quickTo(el, "x", { duration: 1, ease: "elastic.out(1, 0.3)" });
+      const yTo = gsap.quickTo(el, "y", { duration: 1, ease: "elastic.out(1, 0.3)" });
+
+      const handleMouseMove = (e: MouseEvent) => {
+        const { clientX, clientY } = e;
+        const { height, width, left, top } = el.getBoundingClientRect();
+        const x = clientX - (left + width / 2);
+        const y = clientY - (top + height / 2);
+        xTo(x * 0.4);
+        yTo(y * 0.4);
+      };
+
+      const handleMouseLeave = () => {
+        xTo(0);
+        yTo(0);
+      };
+
+      el.addEventListener("mousemove", handleMouseMove);
+      el.addEventListener("mouseleave", handleMouseLeave);
+
+      return () => {
+        el.removeEventListener("mousemove", handleMouseMove);
+        el.removeEventListener("mouseleave", handleMouseLeave);
+      };
+    });
+  }, []);
+
+  const socials = [
+    { Icon: FaLinkedin, link: "https://linkedin.com/in/jaymi1001", target: "_blank", rel: "noopener noreferrer" },
+    { Icon: FaGithub, link: "https://github.com/Jaymi-01" },
+    { Icon: FaEnvelope, link: "mailto:millerjoel7597@gmail.com" },
+    { Icon: FaTwitter, link: "https://x.com/Jaymi_tsx", target: "_blank", rel: "noopener noreferrer" }
+  ];
+
   return (
     <section id="contact" className="py-24 bg-transparent text-white relative">
       <div className="container mx-auto px-4">
@@ -190,8 +232,15 @@ const Contact = () => {
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="border border-gray-800 p-8 rounded-2xl text-center bg-[#1E1E1C]/50">
               <h4 className="text-xs font-mono text-primary uppercase tracking-widest mb-8">Connect with me</h4>
               <div className="grid grid-cols-2 sm:flex sm:justify-center gap-4 md:gap-6 max-w-[280px] sm:max-w-none mx-auto">
-                {[ {Icon: FaLinkedin, link: "https://linkedin.com/in/jaymi1001", target: "_blank", rel: "noopener noreferrer"}, {Icon: FaGithub, link: "https://github.com/Jaymi-01"}, {Icon: FaEnvelope, link: "mailto:millerjoel7597@gmail.com"}, {Icon: FaTwitter, link: "https://x.com/Jaymi_tsx", target: "_blank", rel: "noopener noreferrer"} ].map((social, i) => (
-                  <a key={i} href={social.link} target={social.target} rel={social.rel} className="p-3 border border-gray-700 rounded-xl text-gray-400 hover:text-primary hover:border-primary transition-all transform hover:-translate-y-1 flex items-center justify-center">
+                {socials.map((social, i) => (
+                  <a 
+                    key={i} 
+                    ref={(el) => (socialRefs.current[i] = el)}
+                    href={social.link} 
+                    target={social.target} 
+                    rel={social.rel} 
+                    className="p-3 border border-gray-700 rounded-xl text-gray-400 hover:text-primary hover:border-primary transition-all transform flex items-center justify-center bg-transparent"
+                  >
                     <social.Icon size={20} />
                   </a>
                 ))}
