@@ -4,8 +4,24 @@ import gsap from 'gsap';
 
 const Home = () => {
   const buttonRef = useRef<HTMLAnchorElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
+    // Title Animation
+    const title = titleRef.current;
+    if (title) {
+      const text = title.innerText;
+      title.innerHTML = text.split(" ").map(word => 
+        `<span class="inline-block overflow-hidden"><span class="inline-block">${word}</span></span>`
+      ).join(" ");
+
+      gsap.fromTo(title.querySelectorAll("span > span"), 
+        { y: "100%" }, 
+        { y: "0%", duration: 1, stagger: 0.1, ease: "power4.out", delay: 0.5 }
+      );
+    }
+
+    // Button Magnetic Effect
     const button = buttonRef.current;
     if (!button) return;
 
@@ -40,11 +56,9 @@ const Home = () => {
     <section id="home" className="min-h-screen flex items-center pb-20 md:pb-0">
       <div className="container mx-auto px-4 md:px-0">
         <div className="flex flex-col items-start max-w-4xl">
-          <motion.h1
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-mono uppercase mb-4"
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+          <h1
+            ref={titleRef}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-mono uppercase mb-4 text-white"
           >
             Welcome to my{' '}
             <motion.span
@@ -53,14 +67,14 @@ const Home = () => {
               animate={{ rotateY: 360 }}
               transition={{
                 duration: 2,
-                delay: 0.8,
+                delay: 1.5,
                 ease: "easeInOut"
               }}
               style={{ transformStyle: "preserve-3d" }}
             >
               portfolio
             </motion.span>
-          </motion.h1>
+          </h1>
           <motion.p
             className='font-script text-base sm:text-lg md:text-xl font-semibold mb-6 tracking-normal md:tracking-wide max-w-2xl'
             initial={{ opacity: 0, y: 50 }}
