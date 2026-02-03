@@ -92,7 +92,7 @@ const Header = ({ activeLink, setActiveLink }: HeaderProps) => {
                 <motion.span
                   layoutId="activeSection"
                   className="absolute inset-0 bg-primary/20 rounded-full -z-10"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 />
               )}
               {link.name}
