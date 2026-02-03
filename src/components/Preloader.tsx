@@ -56,12 +56,12 @@ const Preloader = () => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
         >
-          <div className="w-full max-w-lg border border-green-500/30 bg-black/50 p-6 rounded-lg shadow-[0_0_20px_rgba(34,197,94,0.1)]">
-            <div className="flex items-center gap-2 mb-4 border-b border-green-500/20 pb-2">
+          <div className="w-full max-w-lg border border-primary/30 bg-black/50 p-6 rounded-lg shadow-[0_0_20px_rgba(217,154,108,0.1)]">
+            <div className="flex items-center gap-2 mb-4 border-b border-primary/20 pb-2">
               <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
               <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-              <span className="ml-auto text-green-500/50 text-xs">TERMINAL</span>
+              <span className="ml-auto text-primary/50 text-xs">TERMINAL</span>
             </div>
             
             <div 
@@ -73,16 +73,16 @@ const Preloader = () => {
                   key={index}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="text-green-500 font-mono"
+                  className="text-primary font-mono"
                 >
-                  <span className="text-green-700 mr-2">{`>`}</span>
+                  <span className="text-primary/40 mr-2">{`>`}</span>
                   {line}
                 </motion.div>
               ))}
               <motion.div
                 animate={{ opacity: [0, 1, 0] }}
                 transition={{ repeat: Infinity, duration: 0.8 }}
-                className="w-2 h-4 bg-green-500 inline-block ml-1"
+                className="w-2 h-4 bg-primary inline-block ml-1"
               />
             </div>
           </div>
