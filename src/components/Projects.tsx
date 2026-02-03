@@ -1,5 +1,7 @@
 import { FaGithub, FaExternalLinkAlt, FaDesktop, FaMobileAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { useRef, useEffect } from 'react';
+import gsap from 'gsap';
 
 // 1. UPDATED DATA ARRAY WITH TAGS AND TYPE
 const myProjects = [
@@ -56,9 +58,45 @@ const myProjects = [
 
 // 2. INDIVIDUAL PROJECT CARD COMPONENT
 const ProjectCard = ({ project, index }: { project: typeof myProjects[0], index: number }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const handleMouseEnter = () => {
+      gsap.to(card, {
+        y: -10,
+        scale: 1.02,
+        duration: 0.4,
+        ease: "power2.out",
+        boxShadow: "0 20px 25px -5px rgba(217, 154, 108, 0.1), 0 10px 10px -5px rgba(217, 154, 108, 0.04)"
+      });
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(card, {
+        y: 0,
+        scale: 1,
+        duration: 0.4,
+        ease: "power2.out",
+        boxShadow: "none"
+      });
+    };
+
+    card.addEventListener("mouseenter", handleMouseEnter);
+    card.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      card.removeEventListener("mouseenter", handleMouseEnter);
+      card.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
   return (
     <motion.div 
-      className="group relative overflow-hidden rounded-xl border border-primary bg-[#1A1A18]"
+      ref={cardRef}
+      className="group relative overflow-hidden rounded-xl border border-primary bg-[#1A1A18] transition-shadow duration-300"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
