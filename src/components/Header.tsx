@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AlignJustify, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface HeaderProps {
   activeLink: string;
@@ -76,11 +77,18 @@ const Header = ({ activeLink, setActiveLink }: HeaderProps) => {
             <a
               key={link.id}
               href={`#${link.id}`}
-              className={`transition-colors duration-300 font-medium ${
-                activeLink === link.id ? 'text-primary' : 'text-white hover:text-primary'
+              className={`relative px-4 py-2 transition-colors duration-300 font-medium ${
+                activeLink === link.id ? 'text-white' : 'text-gray-400 hover:text-white'
               }`}
               onClick={(e) => handleLinkClick(e, link.id)}
             >
+              {activeLink === link.id && (
+                <motion.span
+                  layoutId="activeSection"
+                  className="absolute inset-0 bg-primary/20 rounded-full -z-10"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
               {link.name}
             </a>
           ))}
