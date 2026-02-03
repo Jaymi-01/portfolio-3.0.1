@@ -24,16 +24,14 @@ const AnimatedShape = () => {
   return (
     <group ref={groupRef}>
       <Float speed={2} rotationIntensity={1} floatIntensity={1}>
-        {/* Core Glowing Sphere */}
+        {/* Core Glowing Sphere - Simplified for Debugging */}
         <Sphere args={[1, 32, 32]} ref={meshRef}>
-          <MeshDistortMaterial
+          <meshStandardMaterial
             color="#d99a6c"
-            speed={3}
-            distort={0.4}
-            radius={1}
             emissive="#d99a6c"
-            emissiveIntensity={0.5}
-            roughness={0}
+            emissiveIntensity={0.8}
+            roughness={0.2}
+            metalness={0.8}
           />
         </Sphere>
         
@@ -51,7 +49,7 @@ const AnimatedShape = () => {
         {[...Array(3)].map((_, i) => (
           <mesh key={i} position={[Math.sin(i * 2) * 2, Math.cos(i * 2) * 2, 0]}>
             <sphereGeometry args={[0.1, 8, 8]} />
-            <meshStandardMaterial color="#d99a6c" emissive="#d99a6c" />
+            <meshStandardMaterial color="#d99a6c" emissive="#d99a6c" emissiveIntensity={1} />
           </mesh>
         ))}
       </Float>
@@ -61,12 +59,12 @@ const AnimatedShape = () => {
 
 const TechOrb = () => {
   return (
-    <div className="w-full h-[400px] md:h-[600px] cursor-grab active:cursor-grabbing">
-      <Canvas>
-        <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} color="#d99a6c" />
-        <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={1} color="#ffffff" />
+    <div className="w-full h-[400px] md:h-[600px] cursor-grab active:cursor-grabbing relative z-10">
+      <Canvas className="bg-transparent">
+        <PerspectiveCamera makeDefault position={[0, 0, 6]} />
+        <ambientLight intensity={1} />
+        <pointLight position={[10, 10, 10]} intensity={2} color="#d99a6c" />
+        <spotLight position={[-10, 10, 10]} angle={0.3} penumbra={1} intensity={2} color="#ffffff" />
         
         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
         
