@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
+import { soundManager } from '../utils/sounds';
 
 const Home = () => {
   const buttonRef = useRef<HTMLAnchorElement>(null);
@@ -92,6 +93,8 @@ const Home = () => {
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+              onMouseEnter={() => soundManager.playHover()}
+              onClick={() => soundManager.playClick()}
             >
               Download my CV
             </motion.a>

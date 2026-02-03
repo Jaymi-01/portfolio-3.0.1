@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AlignJustify, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { soundManager } from '../utils/sounds';
 
 interface HeaderProps {
   activeLink: string;
@@ -12,7 +13,7 @@ const Header = ({ activeLink, setActiveLink }: HeaderProps) => {
 
   // 1. SCROLL EFFECT LOGIC
   useEffect(() => {
-    const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+    const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
     
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100; // Offset for header height
@@ -34,10 +35,14 @@ const Header = ({ activeLink, setActiveLink }: HeaderProps) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [setActiveLink]);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    soundManager.playClick();
+    setIsOpen(!isOpen);
+  };
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
     e.preventDefault();
+    soundManager.playClick();
     setActiveLink(link);
     setIsOpen(false);
     
@@ -68,7 +73,7 @@ const Header = ({ activeLink, setActiveLink }: HeaderProps) => {
     <nav className="bg-[#1A1A18] p-4 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center relative">
         <div className="text-white text-2xl font-bold">
-          <a href="/" className="font-mono text-primary">Jaymi.tsx</a>
+          <a href="/" className="font-mono text-primary" onMouseEnter={() => soundManager.playHover()}>Jaymi.tsx</a>
         </div>
         
         {/* Desktop Navigation */}
@@ -81,6 +86,7 @@ const Header = ({ activeLink, setActiveLink }: HeaderProps) => {
                 activeLink === link.id ? 'text-white' : 'text-gray-400 hover:text-white'
               }`}
               onClick={(e) => handleLinkClick(e, link.id)}
+              onMouseEnter={() => soundManager.playHover()}
             >
               {activeLink === link.id && (
                 <motion.span
