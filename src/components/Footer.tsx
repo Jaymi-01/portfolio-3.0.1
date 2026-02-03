@@ -56,10 +56,10 @@ const Footer = () => {
           <div className="flex flex-col items-end">
             {/* Social Media Links - Right on Mobile */}
             <div className="flex space-x-4 mb-2">
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
+              <a href="https://x.com/Jaymi_tsx" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
                 <Twitter size={20} />
               </a>
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
+              <a href="https://linkedin.com/in/jaymi1001" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
                 <Linkedin size={20} />
               </a>
               <a href="https://github.com/Jaymi-01" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
