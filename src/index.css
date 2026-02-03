@@ -3,20 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
 @import "tailwindcss";
 
-body {
+body{
   background-color: #1A1A18;
   color: #ffffff;
-  cursor: none; /* Hide default cursor */
 }
 
-/* Restore cursor on mobile */
-@media (max-width: 768px) {
-  body {
-    cursor: auto;
-  }
-}
-
-@theme {
+@theme{
   --font-script: playfair;
   --font-serif: Merriweather;
   --font-sans: Poppins;

@@ -7,14 +7,12 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import MusicPlayer from './components/MusicPlayer';
-import CustomCursor from './components/CustomCursor';
 
 const App = () => {
   const [activeLink, setActiveLink] = useState('home');
 
   return (
     <div>
-      <CustomCursor />
       <Header activeLink={activeLink} setActiveLink={setActiveLink} />
       <Home />
       <About />
