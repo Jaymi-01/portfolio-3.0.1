@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { soundManager } from '../utils/sounds';
+import TechOrb from './TechOrb';
 
 const Home = () => {
   const buttonRef = useRef<HTMLAnchorElement>(null);
@@ -54,51 +55,64 @@ const Home = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center pb-20 md:pb-0">
+    <section id="home" className="min-h-screen flex items-center pb-20 md:pb-0 pt-20 md:pt-0">
       <div className="container mx-auto px-4 md:px-0">
-        <div className="flex flex-col items-start max-w-4xl">
-          <h1
-            ref={titleRef}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-mono uppercase mb-4 text-white"
-          >
-            Welcome to my{' '}
-            <motion.span
-              className="text-primary inline-block"
-              initial={{ rotateY: 0 }}
-              animate={{ rotateY: 360 }}
-              transition={{
-                duration: 2,
-                delay: 1.5,
-                ease: "easeInOut"
-              }}
-              style={{ transformStyle: "preserve-3d" }}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column: Content */}
+          <div className="flex flex-col items-start max-w-4xl order-2 lg:order-1">
+            <h1
+              ref={titleRef}
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-mono uppercase mb-4 text-white"
             >
-              portfolio
-            </motion.span>
-          </h1>
-          <motion.p
-            className='font-script text-base sm:text-lg md:text-xl font-semibold mb-6 tracking-normal md:tracking-wide max-w-2xl'
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          >
-            Here you will find a curated selection of frontend projects where creativity meets functionality. Each piece reflects my commitment to solving real problems through clean code, thoughtful design, and experiences that users actually enjoy.
-          </motion.p>
-          <div className="relative inline-block"> {/* Wrapper for isolation */}
-            <motion.a
-              ref={buttonRef}
-              href="/Joel-Miller-Resume.pdf"
-              download
-              className="inline-block bg-primary hover:bg-orange-600 text-white font-extrabold py-3 px-6 rounded-2xl transition-colors duration-300"
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-              onMouseEnter={() => soundManager.playHover()}
-              onClick={() => soundManager.playClick()}
+              Welcome to my{' '}
+              <motion.span
+                className="text-primary inline-block"
+                initial={{ rotateY: 0 }}
+                animate={{ rotateY: 360 }}
+                transition={{
+                  duration: 2,
+                  delay: 1.5,
+                  ease: "easeInOut"
+                }}
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                portfolio
+              </motion.span>
+            </h1>
+            <motion.p
+              className='font-script text-base sm:text-lg md:text-xl font-semibold mb-6 tracking-normal md:tracking-wide max-w-2xl'
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             >
-              Download my CV
-            </motion.a>
+              Here you will find a curated selection of frontend projects where creativity meets functionality. Each piece reflects my commitment to solving real problems through clean code, thoughtful design, and experiences that users actually enjoy.
+            </motion.p>
+            <div className="relative inline-block"> {/* Wrapper for isolation */}
+              <motion.a
+                ref={buttonRef}
+                href="/Joel-Miller-Resume.pdf"
+                download
+                className="inline-block bg-primary hover:bg-orange-600 text-white font-extrabold py-3 px-6 rounded-2xl transition-colors duration-300"
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+                onMouseEnter={() => soundManager.playHover()}
+                onClick={() => soundManager.playClick()}
+              >
+                Download my CV
+              </motion.a>
+            </div>
           </div>
+
+          {/* Right Column: 3D Tech Orb */}
+          <motion.div 
+            className="order-1 lg:order-2"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <TechOrb />
+          </motion.div>
         </div>
       </div>
     </section>
