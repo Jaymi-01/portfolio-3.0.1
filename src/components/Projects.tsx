@@ -53,7 +53,16 @@ const myProjects = [
     image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1769441623/k9lqdgrb4jwgskd6h5uv.png",
     github: "https://github.com/Jaymi-01/anirent",
     demo: "https://anirent.vercel.app/",
-  }
+  },
+  {
+    id: 6,
+    title: "Your Abode",
+    description: "A Peer-to-Peer Rental Marketplace eliminating intermediary fees through transparent owner-renter communication.",
+    tags: ["Nextjs", "Typescript", "Shadcn", "Tanstack Query", "Clerk", "Convex", "OpenStreetMap API"],
+    image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1774998669/h14sztsiy9mntds19vag.png",
+    github: "https://github.com/Jaymi-01/your-abode",
+    demo: "https://your-abode.vercel.app/",
+  },
 ];
 
 // 2. INDIVIDUAL PROJECT CARD COMPONENT
