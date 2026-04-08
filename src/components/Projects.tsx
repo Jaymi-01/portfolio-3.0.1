@@ -59,8 +59,17 @@ const myProjects = [
     title: "Your Abode",
     description: "A Peer-to-Peer Rental Marketplace eliminating intermediary fees through transparent owner-renter communication.",
     tags: ["Nextjs", "Typescript", "Shadcn", "Tanstack Query", "Clerk", "Convex", "OpenStreetMap API"],
-    image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1774998669/h14sztsiy9mntds19vag.png",
+    image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1775646406/ik7mns2pbxohqtvyelxt.png",
     github: "https://github.com/Jaymi-01/your-abode",
+    demo: "https://your-abode.vercel.app/",
+  },
+  {
+    id: 6,
+    title: "Epicurean Escape By Tiara",
+    description: "A fine dining restaurant website with a sleek dashboard for managing reservations, menu items, and customer bookings.",
+    tags: ["Nextjs", "Typescript",  "TailwindCSS", "Recharts", "Firebase", "Paystack API"],
+    image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1775642688/yp4ebe7f7drxmqjxr1wr.png",
+    github: "https://github.com/Jaymi-01/epicureanescape",
     demo: "https://your-abode.vercel.app/",
   },
 ];
