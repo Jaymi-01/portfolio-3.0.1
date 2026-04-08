@@ -82,7 +82,7 @@ const MusicPlayer = () => {
 
   return (
     <motion.div 
-      className="fixed right-6 z-50"
+      className="fixed right-6 md:right-10 lg:right-16 z-50"
       style={{ bottom: `${bottomOffset}px` }}
       initial={{ opacity: 0, y: 60 }}
       animate={{ opacity: 1, y: 0 }}
