@@ -199,7 +199,7 @@ const ProjectCard = ({ project, index }: { project: typeof myProjects[0], index:
 const Projects = () => {
   return (
     <section id="projects" className="min-h-screen flex items-center py-20">
-      <div className="container mx-auto px-4 md:px-0">
+      <div className="container mx-auto px-6 md:px-10 lg:px-16">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
