@@ -10,7 +10,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#1A1A18] text-white py-8">
-      <div className="container mx-auto px-4 md:px-0">
+      <div className="container mx-auto px-6 md:px-10 lg:px-16">
         {/* Desktop Layout */}
         <div className="hidden md:flex items-end justify-between">
           {/* Copyright - Left on Desktop */}
