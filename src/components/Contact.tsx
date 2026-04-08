@@ -195,7 +195,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-24 bg-transparent text-white relative">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 md:px-10 lg:px-16">
         
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold font-mono">Get in touch</h2>
