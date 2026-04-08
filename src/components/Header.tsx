@@ -70,7 +70,7 @@ const Header = ({ activeLink, setActiveLink }: HeaderProps) => {
   ];
 
   return (
-    <nav className="bg-[#1A1A18] p-4 sticky top-0 z-50">
+    <nav className="bg-[#1A1A18] px-6 md:px-10 lg:px-16 py-4 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center relative">
         <div className="text-white text-2xl font-bold">
           <a href="/" className="font-mono text-primary" onMouseEnter={() => soundManager.playHover()}>Jaymi.tsx</a>
@@ -116,7 +116,7 @@ const Header = ({ activeLink, setActiveLink }: HeaderProps) => {
           isOpen ? 'top-full opacity-100 visible' : 'top-[120%] opacity-0 invisible'
         }`}
       >
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-6 py-4">
           <ul className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <li key={link.id}>
