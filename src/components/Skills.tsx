@@ -98,7 +98,7 @@ const Skills = () => {
 
     return (
         <section id="skills" className="min-h-screen flex flex-col justify-center py-20">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-6 md:px-10 lg:px-16">
                 <motion.h1
                     className="text-4xl md:text-5xl font-bold mb-4 font-mono"
                     initial={{ opacity: 0, y: -50 }}
