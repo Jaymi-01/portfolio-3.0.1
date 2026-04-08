@@ -98,7 +98,7 @@ const About = () => {
 
   return (
     <section ref={sectionRef} id="about" className="text-white py-20 overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 md:px-10 lg:px-16">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
           {/* Image - Left on Desktop */}
           <motion.div
