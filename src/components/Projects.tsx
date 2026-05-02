@@ -31,7 +31,7 @@ const myProjects = [
     description: "An online book tracker application with social features.",
     tags: ["React Native", "Typescript", "Firebase"],
     type: "mobile",
-    image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1767778893/n7e3rqkgwdi6serqtrnr.png",
+    image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1777731731/inxu5r56loqtlbn78bba.jpg",
     github: "https://github.com/Jaymi-01/readcount-new",
     demo: "https://appetize.io/app/b_xicmsnlrfqiytygofqp2ep4ru4",
   },
