@@ -70,7 +70,7 @@ const myProjects = [
     tags: ["Nextjs", "Typescript",  "TailwindCSS", "Recharts", "Firebase", "Paystack API"],
     image: "https://res.cloudinary.com/dquzcqxcy/image/upload/v1775642688/yp4ebe7f7drxmqjxr1wr.png",
     github: "https://github.com/Jaymi-01/epicureanescape",
-    demo: "https://your-abode.vercel.app/",
+    demo: "https://epicureanescapebytiara.vercel.app/",
   },
 ];
 
